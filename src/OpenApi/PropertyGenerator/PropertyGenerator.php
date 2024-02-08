@@ -110,6 +110,11 @@ final class PropertyGenerator implements PropertyGeneratorInterface
             return new ArrayType($schemaProperty->items instanceof Schema ? $this->getType($schemaProperty->items) : null);
         }
 
+        if (is_array($schemaProperty->type) && count($schemaProperty->type) === 2 && in_array('null', $schemaProperty->type)) {
+            $schemaProperty->nullable = true;
+            $schemaProperty->type = $schemaProperty->type[0] === 'null' ? $schemaProperty->type[1] : $schemaProperty->type[0];
+        }
+
         $type = $schemaProperty->type;
         $format = $schemaProperty->format;
 

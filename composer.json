@@ -1,5 +1,5 @@
 {
-    "name": "api-platform/schema-generator",
+    "name": "potievdev/schema-generator",
     "type": "library",
     "description": "Various tools to generate a data model based on Schema.org vocables",
     "keywords": [
